@@ -1,0 +1,36 @@
+{
+  "name": "crudp",
+  "version": "1.0.0",
+  "description": "## This  project shows the crud operation Focus area to create this ui design in typescript is:-",
+ "type": "module",
+  "scripts": {
+    "dev": "parcel serve ./src/index.html --port 5500",
+    "type-check": "tsc -b --noEmit",
+    "lint": "eslint src --ext .ts --cache --fix",
+    "build": "rm -rf dist .parcel-cache && npm run type-check && npm run lint && parcel build ./src/index.html --no-autoinstall --no-optimize",
+    "format": "prettier src --write"
+  },
+  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sakshi-Simform/product-management.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sakshi-Simform/product-management/issues"
+  },
+  "homepage": "https://github.com/Sakshi-Simform/product-management#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "eslint": "^9.23.0",
+    "globals": "^16.0.0",
+    "parcel": "^2.14.2",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.28.0"
+  },
+  "dependencies": {
+    "prettier": "^3.5.3"
+  }
+}
