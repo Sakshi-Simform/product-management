@@ -1,5 +1,5 @@
 {
-  "name": "crudp",
+  "name": "crud-operations",
   "version": "1.0.0",
   "description": "This  project shows the crud operation focus area to create this ui design in typescript",
  "type": "module",
