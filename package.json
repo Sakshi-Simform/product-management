@@ -1,7 +1,7 @@
 {
   "name": "crudp",
   "version": "1.0.0",
-  "description": "This  project shows the crud operation Focus area to create this ui design in typescript",
+  "description": "This  project shows the crud operation focus area to create this ui design in typescript",
  "type": "module",
  "scripts": {
   "dev": "parcel serve ./src/index.html --port 3000",
