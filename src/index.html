@@ -10,7 +10,7 @@
     <body>
         <header class="header">
             <h1 id="mainHeading">ProductX</h1>
-            <label for="search" class="visually-hidden">Search Posts</label>
+            <label for="search" class="visually-hidden" aria-label="search bar">Search Posts</label>
             <input
                 type="text"
                 id="searchInput"
@@ -20,7 +20,7 @@
 
         <section class="input-field">
             <h2>Create Post</h2>
-            <input type="hidden" id="postId">
+            <input type="hidden" id="postId" aria-label="create input feild">
             <input
                 type="text"
                 id="title"
@@ -30,8 +30,8 @@
                 type="text"
                 id="body"
                 placeholder="Description"
-                aria-required="true">
-
+                aria-required="true"
+                aria-label="description input feild">
             <button id="savePost" aria-label="Save Post">Save</button>
         </section>
 
