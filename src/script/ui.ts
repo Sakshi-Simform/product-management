@@ -5,7 +5,7 @@ const postContainer = document.getElementById(
 ) as HTMLDivElement;
 
 // Display posts dynamically
-export const displayPosts = (posts: Post[]) => {
+export const displayPosts = (posts: Array<Post>) => {
     postContainer.innerHTML = '';
     posts.sort((a, b) => b.id - a.id);
 
