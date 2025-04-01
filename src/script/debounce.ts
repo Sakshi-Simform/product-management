@@ -1,12 +1,12 @@
 export function debounce<T extends (...args: Parameters<T>) => void>(
     func: T,
     delay: number
-): (...args: Parameters<T>) => void {
-    let timer: ReturnType<typeof setTimeout> | null = null;
-    return (...args: Parameters<T>) => {
-        if (timer) clearTimeout(timer);
+) {
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
+        if (timer !== undefined) clearTimeout(timer);
         timer = setTimeout(() => {
-            func(...args);
+            func.apply(this, args);
         }, delay);
     };
 }
