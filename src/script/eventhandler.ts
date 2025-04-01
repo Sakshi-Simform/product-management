@@ -96,6 +96,7 @@ postContainer.addEventListener('click', async (event) => {
         deleteLocalPost(Number(postId));
         await deletePostAPI(Number(postId));
         displayPosts(getLocalPosts());
+        alert("Are you sure you want to delete")
     }
 });
 
