@@ -112,7 +112,8 @@ h3 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 280px;
-    grid-template-columns: repeat(4, 1fr);
+    height: 350px;
+    position: relative;
 }
 
 .post:hover {
@@ -151,11 +152,14 @@ h3 {
 }
 
 .post-btn {
-    display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;
-    align-items: end;
     margin-top: 25px;
+    display: flex;
+    position: absolute;
+    bottom: 1rem;
+    margin-left: 25px;
 }
 
 .post .delete-btn:hover {
