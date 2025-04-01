@@ -30,7 +30,6 @@ const loadPosts = async () => {
         displayPosts(posts);
     }
 };
-
 // Infinite scroll function
 const loadMorePostsOnScroll = async () => {
     if (isFetching || !hasMore) return;
@@ -54,7 +53,6 @@ const loadMorePostsOnScroll = async () => {
         isFetching = false; // Allow further requests
     }
 };
-
 // Add or update post
 const addOrUpdatePost = async () => {
     const title = titleInput.value.trim();
@@ -79,7 +77,6 @@ const addOrUpdatePost = async () => {
     bodyInput.value = '';
     displayPosts(getLocalPosts());
 };
-
 // Event listener for Edit & Delete actions
 postContainer.addEventListener('click', async (event) => {
     const target = event.target as HTMLElement;
@@ -113,15 +110,12 @@ const searchPosts = () => {
             post.title.toLowerCase().includes(query) ||
             post.body.toLowerCase().includes(query)
     );
-
     displayPosts(filteredPosts);
 };
-
 const debouncedSearchPosts = debounce(searchPosts, 500);
 searchInput.addEventListener('input', debouncedSearchPosts);
 
 // Event listener for search input
-
 window.onload = loadPosts;
 saveButton.addEventListener('click', addOrUpdatePost);
 window.addEventListener('scroll', loadMorePostsOnScroll);
