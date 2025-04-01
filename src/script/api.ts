@@ -11,7 +11,7 @@ export interface Post {
 }
 
 // Fetch posts from API
-export const fetchPosts = async (): Promise<Post[]> => {
+export const fetchPosts = async (): Promise<Array<Post>> => {
     if (!hasMore || isFetching) return [];
     isFetching = true;
     const response = await fetch(`${API_URL}?limit=${LIMIT}&skip=${skip}`);
