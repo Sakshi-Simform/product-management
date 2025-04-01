@@ -1,4 +1,4 @@
-import { Post } from './api.ts';
+import type{ Post } from './api.ts';
 
 export const getLocalPosts = (): Post[] => {
     return JSON.parse(localStorage.getItem('posts') || '[]');
