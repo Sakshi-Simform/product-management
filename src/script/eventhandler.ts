@@ -58,8 +58,9 @@ const loadMorePostsOnScroll = async () => {
 const addOrUpdatePost = async () => {
     const title = titleInput.value.trim();
     const body = bodyInput.value.trim();
+    const titleError = document.getElementById('titleError') as HTMLParagraphElement;
     const descriptionError = document.getElementById('descriptionError') as HTMLParagraphElement;
-
+   
     // Clear previous error message
     descriptionError.textContent = '';
 
@@ -68,10 +69,16 @@ const addOrUpdatePost = async () => {
         return;
     }
 
-    // Validate word count for the description
-    const wordCount = body.split(/\s+/).length;
-    if (wordCount > 50) {
-        descriptionError.textContent = 'Cannot exceed more than 50 words';
+    // Validate character count for the description
+    const maxCharactertitle = 100;
+    if (title.length > maxCharactertitle) {
+        titleError.textContent = 'Cannot exceed more than 50 character';
+        return;
+    }
+
+    const maxCharacter = 100;
+    if (body.length > maxCharacter) {
+        descriptionError.textContent = 'Cannot exceed more than 100 character';
         return;
     }
 
@@ -92,6 +99,7 @@ const addOrUpdatePost = async () => {
     // Clear input fields after successful submission
     titleInput.value = '';
     bodyInput.value = '';
+    titleError.textContent = '';
     descriptionError.textContent = ''; // Clear error message
     displayPosts(getLocalPosts());
 };
