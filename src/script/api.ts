@@ -32,7 +32,7 @@ export const fetchPosts = async (): Promise<Array<PostData>> => {
 
 
 // Update post in API
-export const updatePost = async (post: PostData) => {
+export const update = async (post: PostData) => {
     return fetch(`${API_URL}/${post.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -41,6 +41,6 @@ export const updatePost = async (post: PostData) => {
 };
 
 // Delete post from API
-export const deletePost = async (id: number) => {
+export const delete = async (id: number) => {
     return fetch(`${API_URL}/${id}`, { method: 'DELETE' });
 };
