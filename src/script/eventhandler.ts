@@ -48,10 +48,10 @@ const loadMorePostsOnScroll = async () => {
         }
 
         if (newPosts.length < minimumPost) {
-            hasMore = false; // No more posts available from the API
+            hasMore = false; 
         }
 
-        isFetching = false; // Allow further requests
+        isFetching = false;
     }
 };
 // Add or update post
