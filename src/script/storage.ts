@@ -4,7 +4,7 @@ export const getLocalPosts = (): Array<PostData> => {
     return JSON.parse(localStorage.getItem('posts') || '[]');
 };
 
-export const storePostsLocally = (posts: PostData[]) => {
+export const storePostsLocally = (posts:Array<PostData>) => {
     const storedPosts = getLocalPosts();
     const newPosts = posts.filter(
         (p) => !storedPosts.some((sp) => sp.id === p.id)
