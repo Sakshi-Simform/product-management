@@ -54,15 +54,25 @@ const loadMorePostsOnScroll = async () => {
         isFetching = false;
     }
 };
-// Add or update post
+
 const addOrUpdatePost = async () => {
     const title = titleInput.value.trim();
     const body = bodyInput.value.trim();
-    if (!title || !body) return alert('Please enter title and description');
+    const descriptionError = document.getElementById('descriptionError') as HTMLParagraphElement;
 
+    // Clear previous error message
+    descriptionError.textContent = '';
+
+    if (!title || !body) {
+        alert('Please enter a title and description.');
+        return;
+    }
+
+    // Validate word count for the description
     const wordCount = body.split(/\s+/).length;
     if (wordCount > 50) {
-        return alert('Description cannot exceed 50 words. Please shorten it.');
+        descriptionError.textContent = 'Cannot exceed more than 50 words';
+        return;
     }
 
     let posts = getLocalPosts();
@@ -79,10 +89,13 @@ const addOrUpdatePost = async () => {
         storePostsLocally(posts);
     }
 
+    // Clear input fields after successful submission
     titleInput.value = '';
     bodyInput.value = '';
+    descriptionError.textContent = ''; // Clear error message
     displayPosts(getLocalPosts());
 };
+
 // Event listener for Edit & Delete actions
 postContainer.addEventListener('click', async (event) => {
     const target = event.target as HTMLElement;
