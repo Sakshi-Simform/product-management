@@ -1,5 +1,5 @@
-import { fetchPosts, updatePostAPI, deletePostAPI, Post } from './api.ts';
-import { displayPosts } from './ui.ts';
+import { fetchPosts, updatePost, deletePost, PostData } from './api.ts';
+import { displayPosts } from './displaypost';
 import { debounce } from './debounce.ts';
 import {
     getLocalPosts,
@@ -36,8 +36,9 @@ const loadMorePostsOnScroll = async () => {
 
     const scrollPosition = window.scrollY + window.innerHeight;
     const pageHeight = document.documentElement.scrollHeight;
-
-    if (scrollPosition >= pageHeight - 100) {
+    const pageValue = 150;
+    const minimumPost = 30;
+    if (scrollPosition >= pageHeight - pageValue) {
         isFetching = true;
 
         const newPosts = await fetchPosts(); // Fetch next set of posts
@@ -46,7 +47,7 @@ const loadMorePostsOnScroll = async () => {
             displayPosts(getLocalPosts()); // Display updated posts
         }
 
-        if (newPosts.length < 30) {
+        if (newPosts.length < minimumPost) {
             hasMore = false; // No more posts available from the API
         }
 
@@ -60,12 +61,12 @@ const addOrUpdatePost = async () => {
     if (!title || !body) return alert('Please enter title and description');
 
     let posts = getLocalPosts();
-    let postData: Post;
+    let postData: PostData;
 
     if (editingPostId) {
         postData = { id: editingPostId, title, body };
         updateLocalPost(postData);
-        await updatePostAPI(postData);
+        await updatePost(postData);
         editingPostId = null;
     } else {
         postData = { id: Date.now(), title, body };
@@ -94,7 +95,7 @@ postContainer.addEventListener('click', async (event) => {
 
     if (target.classList.contains('delete-btn')) {
         deleteLocalPost(Number(postId));
-        await deletePostAPI(Number(postId));
+        await deletePost(Number(postId));
         displayPosts(getLocalPosts());
         alert("Are you sure you want to delete")
     }
@@ -102,7 +103,6 @@ postContainer.addEventListener('click', async (event) => {
 
 // Search function to filter posts
 const searchPosts = () => {
-    console.log("Searching posts...");
     const query = searchInput.value.toLowerCase().trim();
     const allPosts = getLocalPosts(); // Get all posts from local storage
 
