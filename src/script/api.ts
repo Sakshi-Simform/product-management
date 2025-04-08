@@ -23,7 +23,7 @@ export const fetchPosts = async (): Promise<Array<PostData>> => {
 };
 
 // Update post in API
-export const updatePostAPI = async (post: PostData) => {
+export const updatePost = async (post: PostData) => {
     return fetch(`${API_URL}/${post.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
