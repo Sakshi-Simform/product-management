@@ -4,8 +4,13 @@ const postContainer = document.getElementById(
     'postContainer'
 ) as HTMLDivElement;
 
-// Display posts dynamically
+//display post
 export const displayPosts = (posts: Array<PostData>) => {
+    if (!postContainer) {
+        console.error("Post container element is not available in the DOM.");
+        return; 
+    }
+
     postContainer.innerHTML = '';
     posts.sort((a, b) => b.id - a.id);
 
