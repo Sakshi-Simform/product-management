@@ -36,8 +36,8 @@ const loadMorePostsOnScroll = async () => {
 
     const scrollPosition = window.scrollY + window.innerHeight;
     const pageHeight = document.documentElement.scrollHeight;
-    // const pageValue = 150;
-    // const minimumPost = 30;
+    const pageValue = 150;
+    const minimumPost = 30;
     if (scrollPosition >= pageHeight - pageValue) {
         isFetching = true;
 
