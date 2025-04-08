@@ -32,6 +32,6 @@ export const updatePostAPI = async (post: PostData) => {
 };
 
 // Delete post from API
-export const deletePostAPI = async (id: number) => {
+export const deletePost = async (id: number) => {
     return fetch(`${API_URL}/${id}`, { method: 'DELETE' });
 };
