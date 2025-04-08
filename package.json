@@ -4,7 +4,7 @@
   "description": "This  project shows the crud operation focus area to create this ui design in typescript",
  "type": "module",
  "scripts": {
-  "dev": "parcel serve ./src/index.html --port 5000",
+  "dev": "parcel serve ./src/index.html",
   "type-check": "tsc -b --noEmit",
   "lint": "eslint src --ext .ts --cache --fix",
   "build": "npm run type-check && npm run lint && parcel build ./src/index.html --no-autoinstall --no-optimize",
