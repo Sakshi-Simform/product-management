@@ -1,11 +1,11 @@
-import type{ Post } from "./api";
+import type{ PostData } from "./api";
 
 const postContainer = document.getElementById(
     'postContainer'
 ) as HTMLDivElement;
 
 // Display posts dynamically
-export const displayPosts = (posts: Array<Post>) => {
+export const displayPosts = (posts: Array<PostData>) => {
     postContainer.innerHTML = '';
     posts.sort((a, b) => b.id - a.id);
 
