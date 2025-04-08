@@ -76,7 +76,7 @@ const addOrUpdatePost = async () => {
         return;
     }
 
-    const maxCharacter = 100;
+    const maxCharacter = 250;
     if (body.length > maxCharacter) {
         descriptionError.textContent = 'Cannot exceed more than 100 character';
         return;
