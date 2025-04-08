@@ -169,3 +169,10 @@ h3 {
 .post .edit-btn:hover {
     background-color: #71b2f8;
 }
+
+.post-message {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+}
