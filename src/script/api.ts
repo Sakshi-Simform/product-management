@@ -10,17 +10,25 @@ export interface PostData {
     body: string;
 }
 
-// Fetch posts from API
 export const fetchPosts = async (): Promise<Array<PostData>> => {
-    if (!hasMore || isFetching) return [];
-    isFetching = true;
-    const response = await fetch(`${API_URL}?limit=${LIMIT}&skip=${skip}`);
-    const data = await response.json();
-    if (data.posts.length < LIMIT) hasMore = false;
-    skip += LIMIT;
-    isFetching = false;
-    return data.posts;
+    try {
+        if (!hasMore || isFetching) return [];
+        isFetching = true;
+
+        const response = await fetch(`${API_URL}?limit=${LIMIT}&skip=${skip}`);
+        const data = await response.json();
+
+        if (data.posts.length < LIMIT) hasMore = false;
+        skip += LIMIT;
+        isFetching = false;
+
+        return data.posts;
+    } catch (error) {
+        isFetching = false;
+        console.error("Error fetching posts:", error); 
+    }
 };
+
 
 // Update post in API
 export const updatePost = async (post: PostData) => {
