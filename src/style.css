@@ -114,6 +114,8 @@ h3 {
     width: 280px;
     height: 350px;
     position: relative;
+    overflow: auto;
+    word-break: break-word;
 }
 
 .post:hover {
