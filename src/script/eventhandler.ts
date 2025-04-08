@@ -103,16 +103,22 @@ postContainer.addEventListener('click', async (event) => {
 
 // Search function to filter posts
 const searchPosts = () => {
-    const query = searchInput.value.toLowerCase().trim();
-    const allPosts = getLocalPosts(); // Get all posts from local storage
+    const query = searchInput.value.toLowerCase().trim(); // Get the search query
+    const allPosts = getLocalPosts(); // Retrieve all posts from localStorage
 
     const filteredPosts = allPosts.filter(
         (post) =>
-            post.title.toLowerCase().includes(query) ||
-            post.body.toLowerCase().includes(query)
+            post.title.toLowerCase().includes(query) || 
+            post.body.toLowerCase().includes(query) 
     );
-    displayPosts(filteredPosts);
+
+    if (filteredPosts.length === 0) {
+        postContainer.innerHTML = '<p class="post-message">No posts available</p>'; 
+    } else {
+        displayPosts(filteredPosts); 
+    }
 };
+
 const debouncedSearchPosts = debounce(searchPosts, 500);
 searchInput.addEventListener('input', debouncedSearchPosts);
 
