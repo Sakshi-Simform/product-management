@@ -60,6 +60,11 @@ const addOrUpdatePost = async () => {
     const body = bodyInput.value.trim();
     if (!title || !body) return alert('Please enter title and description');
 
+    const wordCount = body.split(/\s+/).length;
+    if (wordCount > 50) {
+        return alert('Description cannot exceed 50 words. Please shorten it.');
+    }
+
     let posts = getLocalPosts();
     let postData: PostData;
 
