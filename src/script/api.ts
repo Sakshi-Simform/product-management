@@ -4,14 +4,14 @@ let skip = 0;
 let hasMore = true;
 let isFetching = false;
 
-export interface Post {
+export interface PostData {
     id: number;
     title: string;
     body: string;
 }
 
 // Fetch posts from API
-export const fetchPosts = async (): Promise<Array<Post>> => {
+export const fetchPosts = async (): Promise<Array<PostData>> => {
     if (!hasMore || isFetching) return [];
     isFetching = true;
     const response = await fetch(`${API_URL}?limit=${LIMIT}&skip=${skip}`);
@@ -23,7 +23,7 @@ export const fetchPosts = async (): Promise<Array<Post>> => {
 };
 
 // Update post in API
-export const updatePostAPI = async (post: Post) => {
+export const updatePostAPI = async (post: PostData) => {
     return fetch(`${API_URL}/${post.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
