@@ -26,6 +26,7 @@ export const fetchPosts = async (): Promise<Array<PostData>> => {
     } catch (error) {
         isFetching = false;
         console.error("Error fetching posts:", error); 
+        return [];
     }
 };
 
