@@ -69,16 +69,17 @@ h3 {
 #savePost {
     width: 85%;
     height: 40px;
-    background-color: #007bff;
+    background-color: #7db4ee;
     color: white;
     border: none;
     font-size: medium;
     border-radius: 3px;
     cursor: pointer;
+    font-weight: 700;
 }
 
 #savePost:hover {
-    background-color: #7bb5f3;
+    background-color: #53708f;
 }
 
 .input-field {
@@ -114,7 +115,7 @@ h3 {
     width: 280px;
     height: 350px;
     position: relative;
-    overflow: auto;
+    overflow: hidden;
     word-break: break-word;
 }
 
@@ -132,9 +133,17 @@ h3 {
     font-size: 14px;
     color: #666;
 }
+.post-description{
+    overflow: auto;
+    max-height: 10rem;
+}
+
+.post-description::-webkit-scrollbar{
+    display: none;
+}
 
 .post .delete-btn {
-    background-color: #e94a2e;
+    background-color: #e9624b;
     width: 80px;
     color: white;
     padding: 8px 12px;
@@ -144,7 +153,7 @@ h3 {
 }
 
 .post .edit-btn {
-    background-color: #007bff;
+    background-color: #6d9ed3;
     width: 80px;
     color: white;
     padding: 8px 12px;
@@ -165,7 +174,7 @@ h3 {
 }
 
 .post .delete-btn:hover {
-    background-color: #f15f45;
+    background-color: #bb503d;
 }
 
 .post .edit-btn:hover {
