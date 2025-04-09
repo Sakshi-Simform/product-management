@@ -160,7 +160,7 @@ h3{
 }
 
 .post .edit-btn {
-    background-color: #666;
+    background-color: #111;
     width: 80px;
     color: #ffffff;
     padding: 8px 12px;
@@ -182,11 +182,11 @@ h3{
 }
 
 .post .delete-btn:hover {
-    background-color: #444;
+    background-color: #222;
 }
 
 .post .edit-btn:hover {
-    background-color: #444;
+    background-color: #666;
 }
 
 .post-message {
