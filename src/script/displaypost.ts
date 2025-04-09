@@ -23,7 +23,7 @@ export const displayPosts = (posts: Array<PostData>) => {
         postElement.className = 'post';
         postElement.setAttribute('data-id', post.id.toString());
         postElement.innerHTML = `
-            <h3>${post.title}</h3>
+            <span class = "post-title">${post.title}</span>
             <p class = "post-description">${post.body}</p>
             <div class="post-btn">
                 <button class="edit-btn" data-id="${post.id}">Edit</button>
