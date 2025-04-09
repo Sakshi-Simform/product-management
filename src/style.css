@@ -69,7 +69,7 @@ h3{
 #savePost {
     width: 85%;
     height: 40px;
-    background-color: #7db4ee;
+    background-color: #000;
     color: #ffffff;
     border: none;
     font-size: medium;
@@ -79,7 +79,7 @@ h3{
 }
 
 #savePost:hover {
-    background-color: #53708f;
+    background-color: #333;
 }
 
 .input-field {
@@ -149,7 +149,7 @@ h3{
 }
 
 .post .delete-btn {
-    background-color: #e9624b;
+    background-color: #666;
     width: 80px;
     color: #ffffff;
     padding: 8px 12px;
@@ -160,7 +160,7 @@ h3{
 }
 
 .post .edit-btn {
-    background-color: #6d9ed3;
+    background-color: #666;
     width: 80px;
     color: #ffffff;
     padding: 8px 12px;
@@ -182,11 +182,11 @@ h3{
 }
 
 .post .delete-btn:hover {
-    background-color: #bb503d;
+    background-color: #444;
 }
 
 .post .edit-btn:hover {
-    background-color: #71b2f8;
+    background-color: #444;
 }
 
 .post-message {
