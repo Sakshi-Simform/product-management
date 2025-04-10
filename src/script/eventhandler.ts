@@ -14,6 +14,7 @@ const bodyInput = document.getElementById('description') as HTMLTextAreaElement;
 const saveButton = document.getElementById('savePost') as HTMLButtonElement;
 const postContainer = document.getElementById('postContainer') as HTMLDivElement;
 const searchInput = document.getElementById('searchInput') as HTMLInputElement;
+//const createPostContainer = document.getElementById('input-field') as HTMLDivElement;
 
 let editingPostId: number | null = null;
 let isFetching = false;
@@ -51,15 +52,17 @@ const formHandler = () => {
 const loadPosts = async () => {
     const localPosts = getLocalPosts();
     if (localPosts.length > 0) {
+        (document.getElementById('loader') as HTMLDivElement).style.display="none";
         displayPosts(localPosts);
     } else {
+        (document.getElementById('postContainer') as HTMLDivElement).style.display = "";
         const posts = await fetchPosts();
         storePostsLocally(posts);
         displayPosts(posts);
     }
 };
 
-// Infinite scroll logic
+// Infinite scroll
 const loadMorePostsOnScroll = async () => {
     if (isFetching || !hasMore) return;
 
@@ -140,9 +143,11 @@ postContainer.addEventListener('click', async (event) => {
             editingPostId = post.id;
             titleInput.value = post.title;
             bodyInput.value = post.body;
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }
-
+    
     if (target.classList.contains('delete-btn')) {
         deleteLocalPost(Number(postId));
         await deletePost(Number(postId));

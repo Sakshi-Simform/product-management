@@ -1,18 +1,14 @@
 
-import type { PostData } from "./api";
+ import type { PostData } from "./api";
 
-const postContainer = document.getElementById('postContainer') as HTMLDivElement;
-const loader = document.getElementById('loader') as HTMLDivElement; 
+ const postContainer = document.getElementById('postContainer') as HTMLDivElement;
+
+
 
 export const displayPosts = (posts: Array<PostData>) => {
     if (!postContainer) {
         console.error("Post container element is not available in the DOM.");
         return;
-    }
-
-    // Show loader while posts are loading
-    if (loader) {
-        loader.style.display = 'block'; // Show loader
     }
 
     postContainer.innerHTML = '';
@@ -34,7 +30,5 @@ export const displayPosts = (posts: Array<PostData>) => {
     });
 
     // Hide loader after posts are displayed
-    if (loader) {
-        loader.style.display = 'none'; // Hide loader
-    }
+    
 };
