@@ -14,7 +14,6 @@ const bodyInput = document.getElementById('description') as HTMLTextAreaElement;
 const saveButton = document.getElementById('savePost') as HTMLButtonElement;
 const postContainer = document.getElementById('postContainer') as HTMLDivElement;
 const searchInput = document.getElementById('searchInput') as HTMLInputElement;
-//const createPostContainer = document.getElementById('input-field') as HTMLDivElement;
 
 let editingPostId: number | null = null;
 let isFetching = false;
