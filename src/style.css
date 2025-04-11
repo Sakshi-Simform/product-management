@@ -207,8 +207,8 @@ h3{
 .loader {
     width: 50px;
     height: 50px;
-    border: 6px solid #f3f3f3; 
-    border-top: 6px solid #336f9b; 
+    border: 6px solid #c9c7c7; 
+    border-top: 6px solid #3e90ca; 
     border-radius: 50%;
     animation: spin 2s linear infinite;
     margin: 20px auto;
