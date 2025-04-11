@@ -1,41 +1,37 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Product Management</title>
-        <link rel="stylesheet" href="./style.css">
-        <link rel="icon" href="assets/icon/product.jpg">
-    </head>
-    <body>
-        <header class="header">
-            <h1 id="mainHeading">ProductX</h1>
-            <label for="search" class="visually-hidden">Search Posts</label>
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search posts..."
-                aria-label="Search posts">
-        </header>
 
-        <section class="input-field">
-            <h2>Create Post</h2>
-            <input type="hidden" id="postId">
-            <input
-                type="text"
-                id="title"
-                placeholder="Title"
-                aria-required="true">
-            <input
-                type="text"
-                id="body"
-                placeholder="Description"
-                aria-required="true">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Management</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="assets/icon/product.jpg">
+</head>
 
-            <button id="savePost" aria-label="Save Post">Save</button>
-        </section>
+<body>
+    <header class="header">
+        <h1 id="mainHeading">PostX</h1>
+        <input type="text" id="searchInput" placeholder="Search posts..." aria-label="Search posts">
+    </header>
 
-        <h3 id="post-list">Post List</h3>
-        <div id="postContainer" role="list"></div>
-    </body>
+    <section class="input-field">
+        <h2>Create Post</h2>
+        <input type="hidden" id="postId" aria-label="create input field">
+        <input type="text" id="title" placeholder="Title" aria-required="true" aria-label="add title">
+        <p id="titleError" class="error-message"></p>
+        <input type="text" id="description" placeholder="Description" aria-required="true"
+            aria-label="description input field">
+        <p id="descriptionError" class="error-message"></p>
+        <button id="savePost" aria-label="Save Post">Save</button>
+    </section>
+
+    <h3 id="post-list">Post List</h3>
+
+    <div class="loader" id="loader"></div>
+    <div id="postContainer" role="list"></div>
+
+    <script src="./script/eventhandler.ts" type="module"></script>
+</body>
+
 </html>

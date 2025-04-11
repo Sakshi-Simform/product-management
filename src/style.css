@@ -33,7 +33,7 @@ h2 {
     color: black;
 }
 
-h3 {
+h3{
     color: #333;
     margin-top: 20px;
 }
@@ -48,7 +48,7 @@ h3 {
     border: none;
 }
 
-#body {
+#description {
     width: 85%;
     height: 40px;
     padding: 10px;
@@ -69,16 +69,17 @@ h3 {
 #savePost {
     width: 85%;
     height: 40px;
-    background-color: #007bff;
-    color: white;
+    background-color: #000;
+    color: #ffffff;
     border: none;
     font-size: medium;
     border-radius: 3px;
     cursor: pointer;
+    font-weight: 700;
 }
 
 #savePost:hover {
-    background-color: #7bb5f3;
+    background-color: #333;
 }
 
 .input-field {
@@ -107,61 +108,114 @@ h3 {
 
 /* Individual post styling */
 .post {
-    background-color: white;
+    background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 280px;
-    grid-template-columns: repeat(4, 1fr);
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    word-break: break-word;
 }
 
 .post:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.post h3 {
+#post-list{
+    margin-top: 2rem;
+}
+
+.post-title{
     font-size: 18px;
-    color: #333;
+    color: #000000;
     margin-bottom: 10px;
+    font-weight: bold
 }
 
 .post p {
     font-size: 14px;
     color: #666;
+    margin-top: 20px;
+}
+.post-description{
+    overflow: auto;
+    max-height: 10rem;
+}
+
+.post-description::-webkit-scrollbar{
+    /* display: none; */
+    scrollbar-width: none;
 }
 
 .post .delete-btn {
-    background-color: #e94a2e;
+    background-color: #666;
     width: 80px;
-    color: white;
+    color: #ffffff;
     padding: 8px 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: 700;
 }
 
 .post .edit-btn {
-    background-color: #007bff;
+    background-color: #111;
     width: 80px;
-    color: white;
+    color: #ffffff;
     padding: 8px 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: 700;
 }
 
 .post-btn {
-    display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;
-    align-items: end;
     margin-top: 25px;
+    display: flex;
+    position: absolute;
+    bottom: 1rem;
+    margin-left: 25px;
 }
 
 .post .delete-btn:hover {
-    background-color: #f15f45;
+    background-color: #222;
 }
 
 .post .edit-btn:hover {
-    background-color: #71b2f8;
+    background-color: #666;
+}
+
+.post-message {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+    text-align: left;
+}
+/* Loader styles */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 6px solid #c9c7c7; 
+    border-top: 6px solid #3e90ca; 
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+    margin: 20px auto;
+}
+
+/* Animation for the loader */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
