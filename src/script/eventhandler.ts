@@ -1,6 +1,6 @@
 import { ValidateForm } from './formvalidation';
 import { fetchPosts, updatePost, deletePost, PostData } from './api';
-import { displayPosts } from './displaypost';
+import { displayPosts } from './displayPost';
 import { debounce } from './debounce';
 import {
     getLocalPosts,
