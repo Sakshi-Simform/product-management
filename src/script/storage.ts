@@ -1,10 +1,11 @@
-import type{ PostData } from './api.ts';
+import type { PostData } from './api.ts';
 
 export const getLocalPosts = (): Array<PostData> => {
-    return JSON.parse(localStorage.getItem('posts') || '[]');
+    const post = localStorage.getItem('posts')
+    return post ? JSON.parse('posts') : [];
 };
 
-export const storePostsLocally = (posts:Array<PostData>) => {
+export const storePostsLocally = (posts: Array<PostData>) => {
     const storedPosts = getLocalPosts();
     const newPosts = posts.filter(
         (p) => !storedPosts.some((sp) => sp.id === p.id)
