@@ -1,9 +1,6 @@
+import type { PostData } from "./api";
 
- import type { PostData } from "./api";
-
- const postContainer = document.getElementById('postContainer') as HTMLDivElement;
-
-
+const postContainer = document.getElementById('postContainer') as HTMLDivElement;
 
 export const displayPosts = (posts: Array<PostData>) => {
     if (!postContainer) {
@@ -11,24 +8,43 @@ export const displayPosts = (posts: Array<PostData>) => {
         return;
     }
 
-    postContainer.innerHTML = '';
+    postContainer.innerHTML = ''; 
+
     posts.sort((a, b) => b.id - a.id);
 
     posts.forEach((post) => {
         const postElement = document.createElement('div');
         postElement.className = 'post';
-        postElement.setAttribute('data-id', post.id.toString());
-        postElement.innerHTML = `
-            <span class = "post-title">${post.title}</span>
-            <p class = "post-description">${post.body}</p>
-            <div class="post-btn">
-                <button class="edit-btn" data-id="${post.id}">Edit</button>
-                <button class="delete-btn" data-id="${post.id}">Delete</button>
-            </div>
-        `;
+        postElement.dataset.id = post.id.toString();
+
+        const title = document.createElement('span');
+        title.className = 'post-title';
+        title.textContent = post.title;
+
+        const description = document.createElement('p');
+        description.className = 'post-description';
+        description.textContent = post.body;
+
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'post-btn';
+
+        const editButton = document.createElement('button');
+        editButton.className = 'edit-btn';
+        editButton.dataset.id = post.id.toString();
+        editButton.textContent = 'Edit';
+
+        const deleteButton = document.createElement('button');
+        deleteButton.className = 'delete-btn';
+        deleteButton.dataset.id = post.id.toString();
+        deleteButton.textContent = 'Delete';
+
+        buttonContainer.appendChild(editButton);
+        buttonContainer.appendChild(deleteButton);
+
+        postElement.appendChild(title);
+        postElement.appendChild(description);
+        postElement.appendChild(buttonContainer);
+
         postContainer.appendChild(postElement);
     });
-
-    // Hide loader after posts are displayed
-    
 };
